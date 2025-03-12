@@ -175,7 +175,7 @@ const addWishList = async (productItem) => {
                 
 
 {fav?.some((list) => list.productId === productItem._id) ? (<div className='border-prdt' onClick={()=>rmWishList(productItem)}> 
-  <i class="fa-sharp fa-solid fa-heart fa-lg" style={{ color: '#ff3d3d'}}></i><span> Remove From Wishlist</span>  </div>) 
+  <i class="fa-sharp fa-solid fa-heart fa-lg" style={{ color: '#ff3d3d'}}></i><span> Remove</span>  </div>) 
   :  (<div className='border-prdt' onClick={()=>addWishList(productItem)}>
   <i class="fa-regular fa-heart fa-lg" ></i><span> Add To Wishlist</span> </div>)}
 

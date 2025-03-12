@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import { userReg } from '../service/allApis';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import BottomNavBar from './BottomNavBar';
+import BottomNavBar from './user/BottomNavBar';
 
 export default function RegisterPage() {
     const [showPassword, setShowPassword] = React.useState(false);

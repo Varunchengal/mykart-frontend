@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import { userReg } from '../service/allApis';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import BottomNav from './user/BottomNav';
+import BottomNavBar from './BottomNavBar';
 
 export default function RegisterPage() {
     const [showPassword, setShowPassword] = React.useState(false);
@@ -179,7 +179,7 @@ if(result.status===200){
     </div>
    
     </div>
-<BottomNav/>
+<BottomNavBar />
 </div>
   );
 }

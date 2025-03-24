@@ -229,9 +229,9 @@ if(value){
               ))  
             }
           </div>
-          <div className='row align-home-items' style={{ margin: 'auto' }}>
+          <div className='row align-home-items' >
 
-            {products?.map((item) => (<div className='col-12 col-md-4 col-lg-3 m-1'><Card sx={{ maxWidth: 240, maxHeight: 340 }}  style={{cursor:'pointer'}}>
+            {products?.map((item) => (<div className='col-12 col-md-4 col-lg-3 m-1'><Card sx={{ maxWidth: 240, maxHeight: 340 }}  style={{cursor:'pointer',margin: 'auto' }}>
              
             <div onClick={(productId) =>toProductView(item._id)}>
               <CardMedia

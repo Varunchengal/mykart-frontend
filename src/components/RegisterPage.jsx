@@ -12,10 +12,7 @@ import Button from '@mui/material/Button';
 import { userReg } from '../service/allApis';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import BottomNav from './user/BottomNav';
-=======
->>>>>>> 5ab59ed991fb606ac623dcca51099453ef99559e
 import BottomNavBar from './user/BottomNavBar';
 
 export default function RegisterPage() {
@@ -183,11 +180,9 @@ if(result.status===200){
     </div>
    
     </div>
-<<<<<<< HEAD
+
 <BottomNavBar/>
-=======
-<BottomNavBar />
->>>>>>> 5ab59ed991fb606ac623dcca51099453ef99559e
+
 </div>
   );
 }

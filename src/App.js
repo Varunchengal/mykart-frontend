@@ -42,14 +42,13 @@ function App() {
     <Route path='wishlist' element={<WishLists/>} />
     <Route path='cart' element={<ViewCart/>} />
     <Route path='profile' element={<UserProfile/>} />
-    <Route path='product' element={<ViewProduct/>} />
+    <Route path='product/:id' element={<ViewProduct/>} />
     <Route path='email' element={<ConformEmail/>} />
     <Route path='changepass' element={<ChangePassword/>} />
     <Route path='checkout' element={<CheckoutPage/>} />
     <Route path="address" element={<ConformAddress/>} />
     <Route path="payment-success" element={<PaymentSuccess/>} />
     <Route path="payment" element={<Payment/>} />
-
   </Routes>
   <ToastContainer/>
 </div>

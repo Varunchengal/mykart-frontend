@@ -15,12 +15,14 @@ export default function BottomNavBar() {
             style={{ color: location.pathname === '/' ? 'black' : 'white' }}
             onClick={() => navigate('/')}
           ></i>
+          
         </div>
         <div className='pt-3 pb-3'>
           <i className="fa-solid fa-cart-shopping fa-fade fa-lg"
             style={{ color: location.pathname === '/cart' ? 'black' : 'white' }}
             onClick={() => navigate('/cart')}
           ></i>
+          
         </div>
         {/* <div className='pt-3 pb-3'>
           <i className="fa-solid fa-bars fa-lg"></i>

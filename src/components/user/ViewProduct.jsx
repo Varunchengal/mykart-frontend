@@ -5,10 +5,10 @@ import { BASEURL } from '../../service/baseUrl';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import BottomNavBar from './BottomNavBar';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ViewList } from '@mui/icons-material';
-import Button from '@mui/material/Button';
+
 import UserNavBar from './UserNavBar';
 import FooterMenu from './FooterMenu';
 
@@ -18,6 +18,8 @@ function ViewProduct() {
     const [productItem,setProductItem]=useState([])
     const [fav,setFav]=useState()
     const navigate=useNavigate()
+   const { id } = useParams();
+    console.log(id)
 
     const handleSelect = (selectedIndex) => {
       setIndex(selectedIndex);
@@ -30,12 +32,8 @@ function ViewProduct() {
     },[])
 
     const viewItem=async()=>{
-        if( sessionStorage.getItem("productId")){
-            const prId=sessionStorage.getItem("productId")
-            const productId=JSON.parse(prId)
-        
-        const result=await viewSingleProduct(productId)
-        console.log(productId)
+        if(id){
+        const result=await viewSingleProduct(id)
         console.log(result)
         if(result.status==200){
         setProductItem({

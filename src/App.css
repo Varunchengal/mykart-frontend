@@ -6,6 +6,7 @@
   background-color: #1976d2;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  z-index: 1;
 }
 
 p{
@@ -405,3 +406,14 @@ padding-bottom: 50px;
   /* border: thin 1px rgb(190, 190, 190) !important; */
   border-radius: 12px;
 }
+.cart-of{
+  overflow-x: scroll;
+}
+.btn-menu-txt{
+  font-size: smaller;
+  margin-left: -5 !important;
+}
+
+
+
+

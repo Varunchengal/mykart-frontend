@@ -76,7 +76,7 @@ const checkoutClicked=(e)=>{
                     
             </div>
            <div className='row'>
-            <div className='col-12 col-lg-6'>
+            <div className='col-12 col-lg-6 cart-of'>
                {
                     cartItems?.length>0 ?
               <Table className='table-borderd'>

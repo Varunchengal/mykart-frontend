@@ -6,7 +6,11 @@
   background-color: #1976d2;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+<<<<<<< HEAD
   z-index: 1;
+=======
+   z-index: 1;
+>>>>>>> 5ab59ed991fb606ac623dcca51099453ef99559e
 }
 
 p{

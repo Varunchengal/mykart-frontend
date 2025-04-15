@@ -99,7 +99,7 @@ const checkoutClicked=(e)=>{
               
                       )) }  </tbody></Table>
                     :
-                    <div className='empty-page'><h2 >Your Wishlist Is Empty !</h2></div>
+                    <div className='empty-page'><h2 >Your Cart Is Empty !</h2></div>
                    
                   }
 

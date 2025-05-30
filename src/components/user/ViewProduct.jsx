@@ -132,25 +132,47 @@ const addWishList = async (productItem) => {
     return (
         <div>
           <UserNavBar/>
-          Product<div className='container'>
-            <div className='row'>
+          <div className='container'>
+            <div className='row mt-5' style={{marginBottom:'100px'}}>
                 <div className='col-12 col-lg-6'>
-    <Carousel className='' activeIndex={index} onSelect={handleSelect}>
-     
-     {productItem.image1? <Carousel.Item>
-        <img className='product-carousel' src={`${BASEURL}/upload/${productItem.image1}`} alt="First Image" />
-      </Carousel.Item> : ''} {productItem.image2? <Carousel.Item>
-     <img className='product-carousel' src={`${BASEURL}/upload/${productItem.image2}`} alt="Second Image" />
-      </Carousel.Item>: "image"}{ productItem.image3? <Carousel.Item>
-        <img className='product-carousel' src={`${BASEURL}/upload/${productItem.image3}` } alt="Third Image" />
-      </Carousel.Item>:''}
-    </Carousel>
+   <Carousel className="" activeIndex={index} onSelect={handleSelect}>
+  {productItem.image1 && (
+    <Carousel.Item>
+      <img
+        className="product-carousel"
+        src={`${BASEURL}/upload/${productItem.image1}`}
+        alt="First Image"
+      />
+    </Carousel.Item>
+  )}
+  {productItem.image2 ? (
+    <Carousel.Item>
+      <img
+        className="product-carousel"
+        src={`${BASEURL}/upload/${productItem.image2}`}
+        alt="Second Image"
+      />
+    </Carousel.Item>
+  ) : (
+    "image"
+  )}
+  {productItem.image3 && (
+    <Carousel.Item>
+      <img
+        className="product-carousel"
+        src={`${BASEURL}/upload/${productItem.image3}`}
+        alt="Third Image"
+      />
+    </Carousel.Item>
+  )}
+</Carousel>
+
   
 
                 </div>
                 <div className='col-12 col-lg-6'>
                     <h4 className=''>{productItem.title}</h4>
-                    <p>{productItem.description}</p>
+                    <p style={{fontSize:'12px'}}>{productItem.description}</p>
                     <h4>₹{productItem.crate}<span className='mrp'> ₹{productItem.mrp}</span></h4>
                     <Stack spacing={1}>
       {/* <Rating name="half-rating" defaultValue={2.5} precision={0.5} /> */}
@@ -183,7 +205,7 @@ const addWishList = async (productItem) => {
                 </div>
             </div>
         </div>
-        <div style={{marginTop:'100px'}}>
+        <div style={{bottom:'0px',position:"absolute",width:'100%'}}>
           <FooterMenu/>
             <BottomNavBar/> </div></div>
     )

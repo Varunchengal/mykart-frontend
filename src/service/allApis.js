@@ -37,8 +37,8 @@ export const editProfile=async(id,body,headers)=>{
     return await commonRequest("PUT",`${BASEURL}/editprof/${id}`,body,headers)
 }
 
-export const viewProducts=async()=>{
-    return await commonRequest("GET",`${BASEURL}/view`,'','')
+export const viewProducts=async(page, limit)=>{
+    return await commonRequest("GET",`${BASEURL}/view?page=${page}&limit=${limit}`,'','')
 }
 
 

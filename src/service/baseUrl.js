@@ -1,1 +1,1 @@
-export const BASEURL='https://mykart-serverr.onrender.com'
+export const BASEURL='http://localhost:4000'

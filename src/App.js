@@ -22,6 +22,7 @@ import ConformAddress from './components/user/ConformAddress'
 import PaymentSuccess from './components/user/PaymentSuccess';
 import Payment from './components/user/Payment';
 import ViewOrders from './components/admin/ViewOrders';
+import Aaaa from './components/user/Aaaa'
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
     <Route path="address" element={<ConformAddress/>} />
     <Route path="payment-success" element={<PaymentSuccess/>} />
     <Route path="payment" element={<Payment/>} />
+    <Route path="aa" element={<Aaaa/>} />
   </Routes>
   <ToastContainer/>
 </div>

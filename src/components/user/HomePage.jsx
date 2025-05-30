@@ -18,6 +18,10 @@ import ViewProduct from './ViewProduct';
 import SearchIcon from '@mui/icons-material/Search';
 import FooterMenu from './FooterMenu';
 import UserNavBar from './UserNavBar';
+import ImageSlider from './ImageSlider';
+import CloseIcon from '@mui/icons-material/Close';
+import SearchBar from './SearchBar';
+import { Pagination, CircularProgress, Box } from '@mui/material';
 
 export default function HomePage() {
 
@@ -25,6 +29,12 @@ export default function HomePage() {
   const [fav, setFav] = useState()
   const [search,setSearch]=useState()
   const [searchedItem,setSearchedItem]=useState()
+   const [data, setData] = useState([]);
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
+    const [loading, setLoading] = useState(false);
+  
+    const itemsPerPage = 8;
 
   const [pId, setPId] = useState()
 
@@ -55,19 +65,27 @@ export default function HomePage() {
   const navigate = useNavigate()
   const [expanded, setExpanded] = useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+   const handleChange = (_, value) => {
+    setPage(value);
   };
 
-  const viewProductsUser = async () => {
-
-    const result = await viewProducts()
-    setProducts(result.data)
+const viewProductsUser = async () => {
+  setLoading(true);
+  try {
+    const result = await viewProducts(page, itemsPerPage);
+    if (result.status === 200) {
+      setProducts(result.data.product);
+      setTotalPages(Math.ceil(result.data.total / itemsPerPage));
+    }
+  } catch (error) {
+    console.error(error);
   }
+  setLoading(false);
+};
 
   useEffect(() => {
     viewProductsUser()
-  }, [])
+  }, [page])
 
   const viewWishListFun = async () => {
     if (sessionStorage.getItem('userId')) {
@@ -82,7 +100,7 @@ export default function HomePage() {
 
   useEffect(() => {
     viewWishListFun()
-  }, [])
+  }, [page])
 
   const addWishList = async (item) => {
     console.log(item)
@@ -182,42 +200,44 @@ export default function HomePage() {
     navigate(`/product/${productId}`)
   }
 
-  const searchHandle=(e)=>{
-const value=e.target.value
-if(value){
- setSearch(value)
-}else{
-  setSearch('@#')
-}
-  }
-  const searched=async()=>{
-    const result=await searchProductFun(search)
-    console.log(result)
-    if(result.status===200){
-      setSearchedItem(result.data)
+//   const searchHandle=(e)=>{
+// const value=e.target.value
+// if(value){
+//  setSearch(value)
+// }else{
+//   setSearch('@#')
+// }
+//   }
+  // const searched=async()=>{
+  //   const result=await searchProductFun(search)
+  //   console.log(result)
+  //   if(result.status===200){
+  //     setSearchedItem(result.data)
       
-    }
-  }
+  //   }
+  // }
 
 
-  useEffect(()=>{
-    searched()
-  },[search])
+  // useEffect(()=>{
+  //   searched()
+  // },[search])
 
-  console.log(search)
+  console.log(products)
   console.log(searchedItem)
 
   return (
     <div >
        <UserNavBar/>
+       
       <div className='mb-5'>
         <div>
-          <div className='m-4'>
-            
-            <div className=''>
+          <div className='mt-4 ms-4 me-4'>
+            <SearchBar/>
+            {/* <div className=''>
               <input className='searchbar'
               type="text" placeholder='search here' name="search" 
               onChange={(e)=>searchHandle(e)} 
+              
               /> 
             </div>
             {
@@ -227,11 +247,12 @@ if(value){
                 
               </div>
               ))  
-            }
+            } */}
           </div>
+          <ImageSlider />
           <div className='row align-home-items' >
 
-            {products?.map((item) => (<div className='col-12 col-md-4 col-lg-3 m-1'><Card sx={{ maxWidth: 240, maxHeight: 340 }}  style={{cursor:'pointer',margin: 'auto' }}>
+            {products?.map((item) => (<div className='col-12 col-md-4 col-lg-3 m-1'><Card sx={{ maxWidth: 300, maxHeight: 340 }}  style={{cursor:'pointer',margin: 'auto' }}>
              
             <div onClick={(productId) =>toProductView(item._id)}>
               <CardMedia
@@ -268,10 +289,17 @@ if(value){
               </CardActions>
 
             </Card></div>))}
+
+              <Box display="flex" justifyContent="center" mt={2}>
+                    <Pagination count={totalPages} page={page} onChange={handleChange} color="primary" />
+                  </Box>
+              
+                
           </div>
         </div>
       </div>
-      <FooterMenu/>
+      <div style={{bottom:'0px',position:"relative",width:'100%'}}>  <FooterMenu/></div>
+    
       <BottomNavBar />
     </div>
 

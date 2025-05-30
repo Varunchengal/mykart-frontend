@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function FooterMenu() {
   return (
-    <div>
+    <div >
         <div className='footer-bg-clr'>
         <div><p className='text-light text-center pt-5'>sample</p></div>
             <div className='footer-bg'>
